@@ -3,10 +3,10 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import SignIn from './pages/SignIn';
 import About from './pages/About';
 import Home from './pages/Home';
-import SignOut from './pages/SignOut';
 import Projects from './pages/Projects';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header';
+import SignUp from './pages/SignUp';
 
 export default function App() {
   return (
@@ -15,8 +15,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path='/sign-in' element={<SignIn/>}/>
-        <Route path='/sign-out' element={<SignOut/>}/>
+        <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
         <Route path='/project' element={<Projects/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/home' element={<Home/>}/>
