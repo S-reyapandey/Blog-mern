@@ -7,9 +7,13 @@ import resetPassword from "../Templates/Mail/reset.js";
 import mailServices from "../services/mailer.js";
 import crypto from "crypto";
 
-const signToken = (userId) => jwt.sign({
-    userId}
-, process.env.JWT_SECRET);
+const signToken = (userId) =>
+  jwt.sign(
+    {
+      userId,
+    },
+    process.env.JWT_SECRET
+  );
 
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -117,21 +121,21 @@ export const forget = async (req, res, next) => {
 };
 
 export const reset = async (req, res, next) => {
-    const resetToken = req.params.token;
-    console.log("freset", resetToken);
+  const resetToken = req.params.token;
+  console.log("freset", resetToken);
   const hashedToken = crypto
     .createHash("sha256")
     .update(resetToken)
     .digest("hex");
 
-    console.log("Hashed token:", hashedToken);
+  console.log("Hashed token:", hashedToken);
 
   const user = await User1.findOne({
     passwordResetToken: hashedToken,
     passwordResetExpires: { $gt: Date.now() },
   });
 
-  if(!user){
+  if (!user) {
     return next(errorHandler(400, "Invalid token or token has expired"));
   }
 
@@ -145,6 +149,46 @@ export const reset = async (req, res, next) => {
     status: "success",
     message: "Password reseted successfully",
     token: newtoken,
-  })
+  });
+};
 
+export const google = async (req, res, next) => {
+  const { email, name, googlePhotoUrl } = req.body;
+  try {
+    const user = await User1.findOne({ email });
+    if (user) {
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+      const { password, ...rest } = user._doc;
+      res
+        .status(200)
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .json(rest);
+    } else {
+      const generatePassword =
+        Math.random().toString(36).slice(-8) +
+        Math.random().toString(36).slice(-8);
+      const hashedPassword = bcrypt.hashSync(generatePassword, 10);
+      const newUser = new User1({
+        username:
+          name.toLowerCase().split(" ").join("") +
+          Math.random().toString(9).slice(-4),
+        email,
+        password: hashedPassword,
+        profilePicture: googlePhotoUrl,
+      });
+      await newUser.save();
+      const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+      const { password, ...rest } = newUser._doc;
+      res
+        .status(200)
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .json(rest);
+    }
+  } catch (err) {
+    next(err);
+  }
 };
