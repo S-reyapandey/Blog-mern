@@ -9,8 +9,6 @@ import Header from "./components/Header";
 import SignUp from "./pages/SignUp";
 import FooterCom from "./components/Footer";
 import Scrollbar from "./components/Scrollbar";
-import ForgetP from "./pages/ForgetP";
-import ResetP from "./pages/ResetP";
 import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
@@ -24,8 +22,6 @@ export default function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/project" element={<Projects />} />
-        <Route path="/forget" element={<ForgetP />} />
-        <Route path="/reset" element={<ResetP />} />
         <Route path="/home" element={<Home />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />

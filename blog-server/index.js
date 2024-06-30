@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoute.js";
 import authRoutes from "./routes/authroute.js";
+import cookieParser from "cookie-parser";
 
 import "dotenv/config";
 
@@ -26,6 +27,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
