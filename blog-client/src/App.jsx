@@ -8,13 +8,13 @@ import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import SignUp from "./pages/SignUp";
 import FooterCom from "./components/Footer";
-import Scrollbar from "./components/Scrollbar";
+//import Scrollbar from "./components/Scrollbar";
 import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Scrollbar />
+     
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
