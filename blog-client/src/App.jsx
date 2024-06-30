@@ -11,6 +11,7 @@ import FooterCom from "./components/Footer";
 //import Scrollbar from "./components/Scrollbar";
 import PrivateRoute from "./components/PrivateRoute";
 import CreatePost from "./pages/CreatePost";
+import UpdatePost from "./pages/UpdatePost";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path="/createpost" element={<CreatePost />} />
+          <Route path="/updatepost/:postId" element={<UpdatePost />} />
         </Route>
       </Routes>
       <FooterCom />
