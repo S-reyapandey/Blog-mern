@@ -1,3 +1,4 @@
+import Comment from "../models/commentModel.js";
 import Post from "../models/postModel.js";
 import { errorHandler } from "../utils/error.js";
 
@@ -105,6 +106,17 @@ export const updatepost = async (req, res, next) => {
       { new: true }
     );
     res.status(200).json(updatedPost);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getpostcomments = async (req, res, next) => {
+  try {
+    const comments = await Comment.find({ postId: req.params.postId }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(comments);
   } catch (err) {
     next(err);
   }

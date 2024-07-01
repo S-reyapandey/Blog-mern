@@ -1,7 +1,8 @@
 import { Alert, Button, Textarea } from "flowbite-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import Comment from "./Comment";
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
@@ -14,31 +15,46 @@ export default function CommentSection({ postId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(comment.length > 200){
-        return;
+    if (comment.length > 200) {
+      return;
     }
-    try{
-       const res = await fetch('/api/comment/create', {
-        method: 'POST',
+    try {
+      const res = await fetch("/api/comment/create", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            content: comment,
-            postId,
-            userId: currentUser._id,
+          content: comment,
+          postId,
+          userId: currentUser._id,
         }),
-       });
-       const data = await res.json();
-       if(res.ok){
-        setComment('');
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setComment("");
         setCommentError(null);
         setComments([data, ...comments]);
-       }
-    }catch(err){
-       setCommentError(err.message);
+      }
+    } catch (err) {
+      setCommentError(err.message);
     }
-  }
+  };
+
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const res = await fetch(`/api/comment/getpostcomments/${postId}`);
+        if (res.ok) {
+          const data = await res.json();
+          setComments(data);
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    getComments();
+  }, [postId]);
 
   return (
     <div className="max-w-2xl mx-auto w-full p-3">
@@ -66,7 +82,10 @@ export default function CommentSection({ postId }) {
         </div>
       )}
       {currentUser && (
-        <form onSubmit={handleSubmit} className="border border-teal-500 rounded-md p-3">
+        <form
+          onSubmit={handleSubmit}
+          className="border border-teal-500 rounded-md p-3"
+        >
           <Textarea
             placeholder="Add a comment..."
             rows="3"
@@ -82,8 +101,28 @@ export default function CommentSection({ postId }) {
               Submit
             </Button>
           </div>
-          {commentError && <Alert color={'failure'} className="mt-5">{commentError}</Alert>}
+          {commentError && (
+            <Alert color={"failure"} className="mt-5">
+              {commentError}
+            </Alert>
+          )}
         </form>
+      )}
+      {comments.length === 0 ? (
+        <p className="text-sm my-5">No comments yet!</p>
+      ) : (
+        <>
+          <div className="text-sm my-5 flex items-center gap-1">
+            <p>Comments</p>
+            <div className="border border-gray-400 py-1 px-2 rounded-sm">
+              <p>{comments.length}</p>
+            </div>
+          </div>
+          {comments.map((comment) => (
+            <Comment key={comment._id}
+            comment={comment}/>
+          ))}
+        </>
       )}
     </div>
   );
