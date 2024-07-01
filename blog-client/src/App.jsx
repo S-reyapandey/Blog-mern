@@ -12,11 +12,14 @@ import FooterCom from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
+import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
+import PostPage from "./pages/PostPage";
+import Scrollbar from "./components/Scrollbar";
 
 export default function App() {
   return (
     <BrowserRouter>
-     
+      <Scrollbar/>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,10 +28,11 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/project" element={<Projects />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/post/:postSlug" element={<PostPage/>}/>
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
-        <Route element={<PrivateRoute />}>
+        <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/createpost" element={<CreatePost />} />
           <Route path="/updatepost/:postId" element={<UpdatePost />} />
         </Route>
