@@ -15,6 +15,7 @@ import UpdatePost from "./pages/UpdatePost";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import PostPage from "./pages/PostPage";
 import Scrollbar from "./components/Scrollbar";
+import Search from "./pages/Search";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/project" element={<Projects />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<Search/>}/>
         <Route path="/post/:postSlug" element={<PostPage/>}/>
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
