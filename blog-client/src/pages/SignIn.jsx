@@ -57,10 +57,14 @@ export default function SignIn() {
             </span>{" "}
             Blog
           </Link>
-          <p className="text-sm mt-5">
-            This is a demo project. You can sign in with your email and password
-            or with Google.
-          </p>
+          <div className="mr-10">
+          <p className="text-md mt-6">
+          This is a demo project.
+        </p>
+        <p className="text-md mt-2"> You can sign in with your email and password
+        or with Google.</p>
+          </div>
+          
         </div>
         {/**right */}
         <div className="flex-1">

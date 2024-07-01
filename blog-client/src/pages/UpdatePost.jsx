@@ -23,7 +23,7 @@ export default function UpdatePost() {
   const { postId } = useParams();
 
   const navigate = useNavigate();
-    const { currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     try {
@@ -83,6 +83,8 @@ export default function UpdatePost() {
       console.log(error);
     }
   };
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

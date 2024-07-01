@@ -33,8 +33,8 @@ export default function SignUp() {
         return setErrorMessage(data.message);
       }
       setLoading(false);
-      if(res.ok){
-        navigate('/signin');
+      if (res.ok) {
+        navigate("/signin");
       }
     } catch (err) {
       setErrorMessage(err.message);
@@ -52,11 +52,13 @@ export default function SignUp() {
             </span>{" "}
             Blog
           </Link>
-          <p className="text-sm mt-5">
-            This is a demo project. You can sign up with your email and password
-            
-            or with Google.
-          </p>
+          <div className="mr-10">
+            <p className="text-md mt-6">This is a demo project.</p>
+            <p className="text-md mt-2">
+              {" "}
+              You can sign in with your email and password or with Google.
+            </p>
+          </div>
         </div>
         {/**right */}
         <div className="flex-1">
@@ -102,7 +104,7 @@ export default function SignUp() {
                 "Sign Up"
               )}
             </Button>
-            <OAuth/>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Have an account?</span>
