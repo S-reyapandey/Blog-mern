@@ -106,3 +106,7 @@ A MERN stack blog application featuring travel, food, and technology content. Bu
 ### Admin Dashboard
 ![Screenshot (185)](https://github.com/user-attachments/assets/0e48c471-3399-43d1-8d3a-25ca08bc0bde)
 
+![Screenshot (187)](https://github.com/user-attachments/assets/00954341-11ce-4612-89cc-90b41f2a0819)
+![Screenshot (188)](https://github.com/user-attachments/assets/b647b7c2-d2be-42e2-aef1-09da8faa615f)
+
+
