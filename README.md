@@ -61,15 +61,32 @@ A MERN stack blog application featuring travel, food, and technology content. Bu
 * npm start
 * The application will start on http://localhost:5000.
 
-### Usage 
-* **For Users** :
+## Usage
+---------
+
+### For Users
+
+#### Browse and Engage
+
 * Browse blog posts by category.
 * Like and comment on posts.
+
+#### Profile Management
+
 * Register and log in to manage your profile.
 
-* **For Admins** :
+### For Admins
+
+#### Dashboard Access
+
 * Access the admin dashboard to manage posts, comments, and users.
+
+#### Post Management
+
 * Create, edit, or delete posts.
+
+#### User Management
+
 * Manage user roles and permissions.
 
 ### ScreenShots
