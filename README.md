@@ -89,5 +89,7 @@ A MERN stack blog application featuring travel, food, and technology content. Bu
 
 * Manage user roles and permissions.
 
-### ScreenShots
-**HomePage** :
+## Screenshots
+-------------
+
+### Homepage
