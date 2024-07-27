@@ -93,3 +93,16 @@ A MERN stack blog application featuring travel, food, and technology content. Bu
 -------------
 
 ### Homepage
+![Screenshot (182)](https://github.com/user-attachments/assets/52043f53-f0d1-4f07-b7a8-253400efe514)
+![Screenshot (183)](https://github.com/user-attachments/assets/33809bdd-7a0f-4f2f-b69b-3cc75d9acc8a)
+
+### Blog Post
+![Screenshot (180)](https://github.com/user-attachments/assets/11ed4c1f-9987-47a3-bafd-61474854a5bc)
+
+![Screenshot (181)](https://github.com/user-attachments/assets/b61eb155-7b53-4ddd-bee5-99a6ee6ffc41)
+
+![Screenshot (184)](https://github.com/user-attachments/assets/dd52d34c-8faf-4045-922e-97b627e99eac)
+
+### Admin Dashboard
+![Screenshot (185)](https://github.com/user-attachments/assets/0e48c471-3399-43d1-8d3a-25ca08bc0bde)
+
