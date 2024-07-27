@@ -34,13 +34,16 @@ A MERN stack blog application featuring travel, food, and technology content. Bu
 
 * **React**: For building the user interface and user experience.
 * **Tailwind CSS**: For styling and layout.
-* **HTML**: For structuring content.
+* **Firebase**: For authentication through google account and for using firebase storage to store images.
+* **React-Router**: For routing paths throughout the application.
+* **React-Redux**: To manage the different state and actions of application.
 
 ### Backend
 
 * **Node.js**: For building the server-side logic.
 * **Express.js**: For creating RESTful APIs.
 * **MongoDB**: For storing and retrieving data.
+* **Bcryptjs**: For hashing and storing passwords securely in the database.
 
 ### Authentication
 
