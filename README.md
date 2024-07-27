@@ -4,9 +4,9 @@ A MERN stack blog application featuring travel, food, and technology content. Bu
 
 ## Features
 
-**User Management :** Users can register, log in, and manage their profiles.
-**Blog Management :**
--Admins can create, edit, and delete blog posts.
--Users can like and comment on posts.
-**Content Categories :** Supports multiple content categories like travel, food, and technology.
-**Responsive Design :** The application is fully responsive and works on all devices.
+-**User Management :** Users can register, log in, and manage their profiles.
+-**Blog Management :**
+    -Admins can create, edit, and delete blog posts.
+    -Users can like and comment on posts.
+-**Content Categories :** Supports multiple content categories like travel, food, and technology.
+-**Responsive Design :** The application is fully responsive and works on all devices.
