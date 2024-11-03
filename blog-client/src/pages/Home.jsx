@@ -20,13 +20,7 @@ export default function Home() {
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto ">
         <h1 className="text-3xl font-bold lg:text-6xl">Welcome to my Blog</h1>
         <p className="text-gray-500 text-xs sm:text-sm">
-          Here, you'll discover a rich collection of articles and tutorials
-          spanning a wide array of topics, including travel, poetry, web
-          development, software engineering, and programming languages. Whether
-          you're planning your next adventure, seeking inspiration for your
-          writing, or aiming to deepen your technical skills, our content is
-          designed to inspire and inform, catering to both beginners and
-          seasoned professionals alike.
+        Here, you’ll find a diverse collection of articles and tutorials covering a wide range of topics, from travel and poetry to web development, software engineering, and programming languages. Whether you're dreaming of your next adventure, looking for creative inspiration, or eager to expand your technical expertise, our content is crafted to both inspire and inform. With something for everyone—from curious beginners to seasoned professionals—you’ll always discover new insights and ideas to fuel your passions.
         </p>
         <Link
           to="/search"
